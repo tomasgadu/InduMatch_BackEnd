@@ -1,0 +1,25 @@
+package com.indumatch.transversal.utilitarios;
+
+public class UtilNumero {
+	
+	public static int CERO = 0;
+	
+	public UtilNumero() {
+	}
+	
+	public static <N extends Number> N obtenerValorDefecto(N valor, N valorDefecto){
+		return UtilObjeto.obtenerValorDefectoSiValorOriginalEsNulo(valor, valorDefecto);
+	}
+	
+	public static <N extends Number> Number obtenerValorDefecto(N valor){
+		return UtilObjeto.obtenerValorDefectoSiValorOriginalEsNulo(valor, CERO);
+	}
+	
+	public static <N extends Number> boolean mayorQue(N numeroUno, N numeroDos) {
+		return obtenerValorDefecto(numeroUno).doubleValue() > obtenerValorDefecto(numeroDos).doubleValue();
+		
+	}
+	
+	
+
+}

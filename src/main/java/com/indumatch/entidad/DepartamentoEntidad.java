@@ -18,6 +18,12 @@ public class DepartamentoEntidad {
 		setPais(new PaisEntidad());
 	}
 	
+	public DepartamentoEntidad(UUID id, String nombre, PaisEntidad pais) {
+		setId(id);
+		setNombre(nombre);
+		setPais(pais);
+	}
+	
 	public UUID getId() {
 		return id;
 	}

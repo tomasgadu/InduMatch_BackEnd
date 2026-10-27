@@ -17,6 +17,12 @@ public class PaisEntidad {
 		setCodigo(UtilTexto.VACIO);
 	}
 	
+	public PaisEntidad(UUID id, String nombre, String codigo) {
+		setId(id);
+		setNombre(nombre);
+		setCodigo(codigo);
+	}
+	
 	public UUID getId() {
 		return id;
 	}

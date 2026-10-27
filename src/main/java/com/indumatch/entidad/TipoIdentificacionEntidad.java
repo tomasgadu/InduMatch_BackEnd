@@ -15,6 +15,11 @@ public class TipoIdentificacionEntidad {
 		setNombre(UtilTexto.VACIO);
 	}
 	
+	public TipoIdentificacionEntidad(UUID id, String nombre) {
+		setId(id);
+		setNombre(nombre);
+	}
+	
 	public UUID getId() {
 		return id;
 	}

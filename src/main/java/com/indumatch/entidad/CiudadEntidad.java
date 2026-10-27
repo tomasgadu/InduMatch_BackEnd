@@ -18,6 +18,12 @@ public class CiudadEntidad {
 		setDepartamento(new DepartamentoEntidad());
 	}
 	
+	public CiudadEntidad(UUID id, String nombre, DepartamentoEntidad departamento) {
+		setId(id);
+		setNombre(nombre);
+		setDepartamento(departamento);
+	}
+	
 	public UUID getId() {
 		return id;
 	}

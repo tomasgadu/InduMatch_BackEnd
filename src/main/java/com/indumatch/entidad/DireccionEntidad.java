@@ -24,6 +24,15 @@ public class DireccionEntidad {
 		setComplemento(UtilTexto.VACIO);
 	}
 	
+	public DireccionEntidad(UUID id, CiudadEntidad ciudad, String viaPrincipal, String numeroCruce, String numeroCasa, String complemento) {
+		setId(id);
+		setCiudad(ciudad);
+		setViaPrincipal(viaPrincipal);
+		setNumeroCruce(numeroCruce);
+		setNumeroCasa(numeroCasa);
+		setComplemento(complemento);
+	}
+	
 	public UUID getId() {
 		return id;
 	}

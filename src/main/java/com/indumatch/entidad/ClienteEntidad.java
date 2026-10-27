@@ -24,6 +24,15 @@ public class ClienteEntidad {
 		setDireccion(new DireccionEntidad());
 	}
 	
+	public ClienteEntidad(UUID id, TipoIdentificacionEntidad tipoIdentificacion, String numeroDocumento, String telefono, String correo, DireccionEntidad direccion) {
+		setId(id);
+		setTipoIdentificacion(tipoIdentificacion);
+		setNumeroDocumento(numeroDocumento);
+		setTelefono(telefono);
+		setCorreo(correo);
+		setDireccion(direccion);
+	}
+	
 	public UUID getId() {
 		return id;
 	}

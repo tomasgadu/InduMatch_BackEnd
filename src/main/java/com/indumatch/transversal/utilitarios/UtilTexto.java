@@ -5,6 +5,9 @@ public class UtilTexto {
 	private static UtilTexto INSTANCIA;
 	public static String VACIO = "";
 	public static final String SOLO_LETRAS_ESPACIOS = "^[a-zA-Z ñÑáÁéÉíÍóÓúÚ]*$";
+	public static final String ALFANUMERICO = "^[a-zA-Z0-9]*$";
+	public static final String ALFANUMERICO_ESPACIOS = "^[a-zA-Z0-9 ñÑáÁéÉíÍóÓúÚ]*$";
+	public static final String CORREO_ELECTRONICO = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
 
 	private UtilTexto() {
 	}

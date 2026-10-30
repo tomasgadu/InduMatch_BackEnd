@@ -51,7 +51,7 @@ public class CatalogoMensajes {
 		public static final String FORMATO_NUMERO_DOCUMENTO_CLIENTE_NO_VALIDO = "El formato del número de documento no es válido. Asegúrese de que solamente tenga letras y números, sin espacios ni caracteres especiales.";
 		public static final String LONGITUD_NUMERO_DOCUMENTO_CLIENTE_NO_VALIDA = "La longitud del número de documento no es válida. Asegúrese que esté entre 5 y 15 caracteres.";
 		public static final String TELEFONO_CLIENTE_OBLIGATORIO = "El teléfono del cliente es obligatorio para llevar a cabo la operación deseada.";
-		public static final String FORMATO_TELEFONO_CLIENTE_NO_VALIDO = "El formato del teléfono no es válido. Asegúrese de que solamente tenga letras y números, sin espacios ni caracteres especiales.";
+		public static final String FORMATO_TELEFONO_CLIENTE_NO_VALIDO = "El formato del teléfono no es válido. Asegúrese de que solamente tenga números, sin espacios ni caracteres especiales.";
 		public static final String LONGITUD_TELEFONO_CLIENTE_NO_VALIDA = "La longitud del teléfono no es válida. Asegúrese que esté entre 7 y 15 caracteres.";
 		public static final String CORREO_CLIENTE_OBLIGATORIO = "El correo electrónico del cliente es obligatorio para llevar a cabo la operación deseada.";
 		public static final String FORMATO_CORREO_CLIENTE_NO_VALIDO = "El correo electrónico no tiene un formato válido. Asegúrese de que tenga la forma usuario@dominio.com";

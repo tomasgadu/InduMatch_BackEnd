@@ -95,4 +95,25 @@ public class CatalogoMensajes {
 		
 	}
 	
+	public static class AbstractRestController {
+		
+		private AbstractRestController() {
+			
+		}
+		
+		public static final String RECURSO_SOLICITADO_NO_EXISTE = "El recurso solicitado no existe. Por favor verifique la dirección y el método de la petición e intente de nuevo.";
+		public static final String PROBLEMA_INESPERADO_LLEVANDO_A_CABO_OPERACION = "Se ha presentado un problema inesperado tratando de llevar a cabo la operación deseada. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación.";
+		
+	}
+	
+	public static class ClienteControlador {
+		
+		private ClienteControlador() {
+			
+		}
+		
+		public static final String CLIENTE_REGISTRADO_EXITOSAMENTE = "Se ha registrado la información del nuevo cliente de forma exitosa.";
+		
+	}
+	
 }

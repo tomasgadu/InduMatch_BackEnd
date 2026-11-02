@@ -116,4 +116,67 @@ public class CatalogoMensajes {
 		
 	}
 	
+	public static class PostgreSqlDAOFactory {
+		
+		private PostgreSqlDAOFactory() {
+			
+		}
+		
+		public static final String USUARIO_ERROR_PROBLEMA_ABRIENDO_CONEXION = "Se ha presentado un problema tratando de abrir la conexión contra la fuente de información. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_ABRIENDO_CONEXION = "Se ha presentado un problema NO CONTROLADO tratando de abrir la conexión contra la fuente de información. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		
+	}
+	
+	public static class ClientePostgreSqlDAO {
+		
+		private ClientePostgreSqlDAO() {
+			
+		}
+		
+		public static final String USUARIO_ERROR_PROBLEMA_REGISTRANDO_CLIENTE = "Se ha presentado un problema tratando de registrar la información del cliente en la fuente de información. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_REGISTRANDO_CLIENTE = "Se ha presentado un problema NO CONTROLADO tratando de registrar la información del cliente en la fuente de información. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_CONSULTANDO_CLIENTE_POR_ID = "Se ha presentado un problema tratando de consultar la información del cliente por su identificador. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CONSULTANDO_CLIENTE_POR_ID = "Se ha presentado un problema NO CONTROLADO tratando de consultar la información del cliente por su identificador. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_CONSULTANDO_CLIENTES_POR_FILTRO = "Se ha presentado un problema tratando de consultar la información de los clientes. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CONSULTANDO_CLIENTES_POR_FILTRO = "Se ha presentado un problema NO CONTROLADO tratando de consultar la información de los clientes. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		
+	}
+	
+	public static class DireccionPostgreSqlDAO {
+		
+		private DireccionPostgreSqlDAO() {
+			
+		}
+		
+		public static final String USUARIO_ERROR_PROBLEMA_REGISTRANDO_DIRECCION = "Se ha presentado un problema tratando de registrar la información de la dirección en la fuente de información. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_REGISTRANDO_DIRECCION = "Se ha presentado un problema NO CONTROLADO tratando de registrar la información de la dirección en la fuente de información. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_CONSULTANDO_DIRECCION_POR_ID = "Se ha presentado un problema tratando de consultar la información de la dirección por su identificador. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CONSULTANDO_DIRECCION_POR_ID = "Se ha presentado un problema NO CONTROLADO tratando de consultar la información de la dirección por su identificador. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_CONSULTANDO_DIRECCIONES_POR_FILTRO = "Se ha presentado un problema tratando de consultar la información de las direcciones. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CONSULTANDO_DIRECCIONES_POR_FILTRO = "Se ha presentado un problema NO CONTROLADO tratando de consultar la información de las direcciones. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		
+	}
+	
+	public static class TipoIdentificacionPostgreSqlDAO {
+		
+		private TipoIdentificacionPostgreSqlDAO() {
+			
+		}
+		
+		public static final String USUARIO_ERROR_PROBLEMA_CONSULTANDO_TIPO_IDENTIFICACION_POR_ID = "Se ha presentado un problema tratando de consultar la información del tipo de identificación por su identificador. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CONSULTANDO_TIPO_IDENTIFICACION_POR_ID = "Se ha presentado un problema NO CONTROLADO tratando de consultar la información del tipo de identificación por su identificador. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		
+	}
+	
+	public static class CiudadPostgreSqlDAO {
+		
+		private CiudadPostgreSqlDAO() {
+			
+		}
+		
+		public static final String USUARIO_ERROR_PROBLEMA_CONSULTANDO_CIUDAD_POR_ID = "Se ha presentado un problema tratando de consultar la información de la ciudad por su identificador. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CONSULTANDO_CIUDAD_POR_ID = "Se ha presentado un problema NO CONTROLADO tratando de consultar la información de la ciudad por su identificador. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		
+	}
+	
 }

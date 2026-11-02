@@ -1,5 +1,7 @@
 package com.indumatch.dao.factoria.impl;
-import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import com.indumatch.dao.datos.entidad.CategoriaProductoDAO;
 import com.indumatch.dao.datos.entidad.CilindrajeDAO;
 import com.indumatch.dao.datos.entidad.CiudadDAO;
@@ -43,14 +45,36 @@ import com.indumatch.dao.datos.entidad.postgresql.ProductoPostgreSqlDAO;
 import com.indumatch.dao.datos.entidad.postgresql.TipoIdentificacionPostgreSqlDAO;
 import com.indumatch.dao.datos.entidad.postgresql.TransportadoraPostgreSqlDAO;
 import com.indumatch.dao.factoria.DAOFactory;
+import com.indumatch.transversal.catalogo.CatalogoMensajes;
+import com.indumatch.transversal.excepciones.InduMatchDatosException;
+import com.indumatch.transversal.utilitarios.UtilTexto;
 
 public class PostgreSqlDAOFactory extends DAOFactory{
 
+	private static final String URL_POR_DEFECTO = "jdbc:postgresql://localhost:5432/indumatch";
+	private static final String USUARIO_POR_DEFECTO = "postgres";
+
 	@Override
 	protected void abrirConexion() {
-		//TAREA: ¿Como abrir una conexion con PostgreSQL desde java?	
-		Connection conexion = null;
-		setConexion(conexion);	
+		// Los datos de conexión se leen de variables de entorno para que la contraseña
+		// no quede escrita en el código ni en el repositorio
+		var url = obtenerValorVariableEntorno("INDUMATCH_BD_URL", URL_POR_DEFECTO);
+		var usuario = obtenerValorVariableEntorno("INDUMATCH_BD_USUARIO", USUARIO_POR_DEFECTO);
+		var clave = obtenerValorVariableEntorno("INDUMATCH_BD_CLAVE", UtilTexto.VACIO);
+
+		try {
+			setConexion(DriverManager.getConnection(url, usuario, clave));
+		} catch (SQLException excepcion) {
+			var mensajeUsuario = CatalogoMensajes.PostgreSqlDAOFactory.USUARIO_ERROR_PROBLEMA_ABRIENDO_CONEXION;
+			throw InduMatchDatosException.crear(mensajeUsuario, excepcion.getMessage(), excepcion);
+		} catch (Exception excepcion) {
+			var mensajeUsuario = CatalogoMensajes.PostgreSqlDAOFactory.USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_ABRIENDO_CONEXION;
+			throw InduMatchDatosException.crear(mensajeUsuario, excepcion.getMessage(), excepcion);
+		}
+	}
+
+	private String obtenerValorVariableEntorno(String nombreVariable, String valorDefecto) {
+		return UtilTexto.getUtilTexto().obtenerValorDefecto(System.getenv(nombreVariable), valorDefecto);
 	}
 
 	@Override

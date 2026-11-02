@@ -12,7 +12,7 @@ public abstract class SqlDAO {
 		setConexion(conexion);
 	}
 
-	private Connection getConexion() {
+	protected Connection getConexion() {
 		return conexion;
 	}
 

@@ -3,6 +3,7 @@ package com.indumatch.dao.datos.entidad.postgresql;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -10,6 +11,7 @@ import com.indumatch.dao.datos.entidad.CiudadDAO;
 import com.indumatch.dao.datos.entidad.SqlDAO;
 import com.indumatch.entidad.DepartamentoEntidad;
 import com.indumatch.entidad.CiudadEntidad;
+import com.indumatch.entidad.PaisEntidad;
 import com.indumatch.transversal.catalogo.CatalogoMensajes;
 import com.indumatch.transversal.excepciones.InduMatchDatosException;
 
@@ -52,8 +54,28 @@ public class CiudadPostgreSqlDAO extends SqlDAO implements CiudadDAO {
 
 	@Override
 	public List<CiudadEntidad> consultarTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		var sentencia = "SELECT c.id_ciudad, c.nombre AS nombre_ciudad, d.id_departamento, d.nombre AS nombre_departamento, "
+				+ "p.id_pais, p.nombre AS nombre_pais, p.codigo AS codigo_pais "
+				+ "FROM ciudad c "
+				+ "INNER JOIN departamento d ON d.id_departamento = c.id_departamento "
+				+ "INNER JOIN pais p ON p.id_pais = d.id_pais "
+				+ "ORDER BY c.nombre";
+		var ciudades = new ArrayList<CiudadEntidad>();
+
+		try (var sentenciaPreparada = getConexion().prepareStatement(sentencia);
+				var resultado = sentenciaPreparada.executeQuery()) {
+
+			while (resultado.next()) {
+				ciudades.add(mapearCiudadCompleta(resultado));
+			}
+			return ciudades;
+		} catch (SQLException excepcion) {
+			var mensajeUsuario = CatalogoMensajes.CiudadPostgreSqlDAO.USUARIO_ERROR_PROBLEMA_CONSULTANDO_TODAS_CIUDADES;
+			throw InduMatchDatosException.crear(mensajeUsuario, excepcion.getMessage(), excepcion);
+		} catch (Exception excepcion) {
+			var mensajeUsuario = CatalogoMensajes.CiudadPostgreSqlDAO.USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CONSULTANDO_TODAS_CIUDADES;
+			throw InduMatchDatosException.crear(mensajeUsuario, excepcion.getMessage(), excepcion);
+		}
 	}
 
 	@Override
@@ -74,6 +96,16 @@ public class CiudadPostgreSqlDAO extends SqlDAO implements CiudadDAO {
 		departamento.setId(resultado.getObject("id_departamento", UUID.class));
 
 		return new CiudadEntidad(resultado.getObject("id_ciudad", UUID.class), resultado.getString("nombre"),
+				departamento);
+	}
+
+	private CiudadEntidad mapearCiudadCompleta(ResultSet resultado) throws SQLException {
+		var pais = new PaisEntidad(resultado.getObject("id_pais", UUID.class), resultado.getString("nombre_pais"),
+				resultado.getString("codigo_pais"));
+		var departamento = new DepartamentoEntidad(resultado.getObject("id_departamento", UUID.class),
+				resultado.getString("nombre_departamento"), pais);
+
+		return new CiudadEntidad(resultado.getObject("id_ciudad", UUID.class), resultado.getString("nombre_ciudad"),
 				departamento);
 	}
 

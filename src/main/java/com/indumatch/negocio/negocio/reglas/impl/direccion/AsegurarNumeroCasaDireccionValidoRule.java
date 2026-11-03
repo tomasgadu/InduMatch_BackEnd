@@ -36,7 +36,7 @@ public class AsegurarNumeroCasaDireccionValidoRule implements Rule<String> {
 
 	private void validarFormato(String dato) {
 
-		if (!UtilTexto.getUtilTexto().formatoEsValido(dato, UtilTexto.ALFANUMERICO)) {
+		if (!UtilTexto.getUtilTexto().formatoEsValido(dato, UtilTexto.SOLO_NUMEROS)) {
 			var mensajeUsuario = CatalogoMensajes.DireccionNegocioImpl.FORMATO_NUMERO_CASA_DIRECCION_NO_VALIDO;
 			throw InduMatchNegocioException.crear(mensajeUsuario);
 		}

@@ -8,6 +8,8 @@ public class UtilTexto {
 	public static final String ALFANUMERICO = "^[a-zA-Z0-9]*$";
 	public static final String ALFANUMERICO_ESPACIOS = "^[a-zA-Z0-9 ñÑáÁéÉíÍóÓúÚ]*$";
 	public static final String CORREO_ELECTRONICO = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+	public static final String SOLO_NUMEROS = "^[0-9]*$";
+	public static final String NUMERO_CON_LETRA = "^[0-9]+[a-zA-Z]?$";
 
 	private UtilTexto() {
 	}

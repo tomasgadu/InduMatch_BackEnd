@@ -25,6 +25,7 @@ import com.indumatch.dao.datos.entidad.TipoIdentificacionDAO;
 import com.indumatch.dao.datos.entidad.TransportadoraDAO;
 import com.indumatch.dao.factoria.enums.FactoriaEnum;
 import com.indumatch.dao.factoria.impl.PostgreSqlDAOFactory;
+import com.indumatch.transversal.catalogo.CatalogoMensajes;
 import com.indumatch.transversal.excepciones.InduMatchDatosException;
 import com.indumatch.transversal.utilitarios.UtilSQL;
 
@@ -39,7 +40,7 @@ public abstract class DAOFactory {
 		case POSTGRESQL:
 			return new PostgreSqlDAOFactory();
 		default:
-			var mensajeUsuario = "La fuente de información deseada que se solicitó para llevar a cabo la operación no está habilitada. Por favor contacte el administrador de la aplicación";
+			var mensajeUsuario = CatalogoMensajes.DAOFactory.FUENTE_INFORMACION_NO_HABILITADA;
 			throw InduMatchDatosException.crear(mensajeUsuario);
 		}
 	}

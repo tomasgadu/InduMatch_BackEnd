@@ -3,6 +3,7 @@ package com.indumatch.dao.datos.entidad.postgresql;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -51,8 +52,23 @@ public class TipoIdentificacionPostgreSqlDAO extends SqlDAO implements TipoIdent
 
 	@Override
 	public List<TipoIdentificacionEntidad> consultarTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		var sentencia = "SELECT id_tipo_identificacion, nombre FROM tipo_identificacion ORDER BY nombre";
+		var tiposIdentificacion = new ArrayList<TipoIdentificacionEntidad>();
+
+		try (var sentenciaPreparada = getConexion().prepareStatement(sentencia);
+				var resultado = sentenciaPreparada.executeQuery()) {
+
+			while (resultado.next()) {
+				tiposIdentificacion.add(mapearTipoIdentificacion(resultado));
+			}
+			return tiposIdentificacion;
+		} catch (SQLException excepcion) {
+			var mensajeUsuario = CatalogoMensajes.TipoIdentificacionPostgreSqlDAO.USUARIO_ERROR_PROBLEMA_CONSULTANDO_TODOS_TIPOS_IDENTIFICACION;
+			throw InduMatchDatosException.crear(mensajeUsuario, excepcion.getMessage(), excepcion);
+		} catch (Exception excepcion) {
+			var mensajeUsuario = CatalogoMensajes.TipoIdentificacionPostgreSqlDAO.USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CONSULTANDO_TODOS_TIPOS_IDENTIFICACION;
+			throw InduMatchDatosException.crear(mensajeUsuario, excepcion.getMessage(), excepcion);
+		}
 	}
 
 	@Override

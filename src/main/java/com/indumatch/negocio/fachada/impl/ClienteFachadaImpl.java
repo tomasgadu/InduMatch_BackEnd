@@ -9,6 +9,7 @@ import com.indumatch.negocio.fachada.ClienteFachada;
 import com.indumatch.negocio.fachada.assembler.impl.ClienteDTOAssembler;
 import com.indumatch.negocio.negocio.ClienteNegocio;
 import com.indumatch.negocio.negocio.impl.ClienteNegocioImpl;
+import com.indumatch.transversal.catalogo.CatalogoMensajes;
 import com.indumatch.transversal.excepciones.InduMatchExcepcion;
 import com.indumatch.transversal.excepciones.InduMatchFachadaException;
 
@@ -36,7 +37,7 @@ public class ClienteFachadaImpl implements ClienteFachada {
 		} catch (Exception excepcion) {
 			daoFactory.cancelarTransaccion();
 
-			var mensajeUsuario = "Se ha presentado un problema inesperado tratando de registrar la información del nuevo cliente. Por favor intente de nuevo y si el problema persiste, contacte al administrador de la aplicación";
+			var mensajeUsuario = CatalogoMensajes.ClienteFachadaImpl.PROBLEMA_INESPERADO_REGISTRANDO_CLIENTE;
 			throw InduMatchFachadaException.crear(mensajeUsuario, excepcion.getMessage(), excepcion);
 		} finally {
 			daoFactory.cerrarConexion();

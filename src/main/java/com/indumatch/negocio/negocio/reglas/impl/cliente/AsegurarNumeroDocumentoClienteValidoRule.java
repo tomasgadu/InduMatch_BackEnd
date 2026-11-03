@@ -36,7 +36,7 @@ public class AsegurarNumeroDocumentoClienteValidoRule implements Rule<String> {
 
 	private void validarFormato(String dato) {
 
-		if (!UtilTexto.getUtilTexto().formatoEsValido(dato, UtilTexto.ALFANUMERICO)) {
+		if (!UtilTexto.getUtilTexto().formatoEsValido(dato, UtilTexto.SOLO_NUMEROS)) {
 			var mensajeUsuario = CatalogoMensajes.ClienteNegocioImpl.FORMATO_NUMERO_DOCUMENTO_CLIENTE_NO_VALIDO;
 			throw InduMatchNegocioException.crear(mensajeUsuario);
 		}

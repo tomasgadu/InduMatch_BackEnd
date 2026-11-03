@@ -48,7 +48,7 @@ public class CatalogoMensajes {
 		// CLI-P-0001: datos válidos
 		public static final String TIPO_IDENTIFICACION_CLIENTE_OBLIGATORIO = "El tipo de identificación del cliente es obligatorio para llevar a cabo la operación deseada.";
 		public static final String NUMERO_DOCUMENTO_CLIENTE_OBLIGATORIO = "El número de documento del cliente es obligatorio para llevar a cabo la operación deseada.";
-		public static final String FORMATO_NUMERO_DOCUMENTO_CLIENTE_NO_VALIDO = "El formato del número de documento no es válido. Asegúrese de que solamente tenga letras y números, sin espacios ni caracteres especiales.";
+		public static final String FORMATO_NUMERO_DOCUMENTO_CLIENTE_NO_VALIDO = "El formato del número de documento no es válido. Asegúrese de que solamente tenga números, sin espacios ni caracteres especiales.";
 		public static final String LONGITUD_NUMERO_DOCUMENTO_CLIENTE_NO_VALIDA = "La longitud del número de documento no es válida. Asegúrese que esté entre 5 y 15 caracteres.";
 		public static final String TELEFONO_CLIENTE_OBLIGATORIO = "El teléfono del cliente es obligatorio para llevar a cabo la operación deseada.";
 		public static final String FORMATO_TELEFONO_CLIENTE_NO_VALIDO = "El formato del teléfono no es válido. Asegúrese de que solamente tenga números, sin espacios ni caracteres especiales.";
@@ -79,10 +79,10 @@ public class CatalogoMensajes {
 		public static final String FORMATO_VIA_PRINCIPAL_DIRECCION_NO_VALIDO = "El formato de la vía principal no es válido. Asegúrese de que solamente tenga letras, números y espacios.";
 		public static final String LONGITUD_VIA_PRINCIPAL_DIRECCION_NO_VALIDA = "La longitud de la vía principal no es válida. Asegúrese que esté entre 4 y 20 caracteres.";
 		public static final String NUMERO_CRUCE_DIRECCION_OBLIGATORIO = "El número de cruce de la dirección es obligatorio para llevar a cabo la operación deseada.";
-		public static final String FORMATO_NUMERO_CRUCE_DIRECCION_NO_VALIDO = "El formato del número de cruce no es válido. Asegúrese de que solamente tenga letras y números.";
+		public static final String FORMATO_NUMERO_CRUCE_DIRECCION_NO_VALIDO = "El formato del número de cruce no es válido. Asegúrese de que sea un número que puede terminar en una letra, por ejemplo 44 o 44A.";
 		public static final String LONGITUD_NUMERO_CRUCE_DIRECCION_NO_VALIDA = "La longitud del número de cruce no es válida. Asegúrese que esté entre 1 y 6 caracteres.";
 		public static final String NUMERO_CASA_DIRECCION_OBLIGATORIO = "El número de casa de la dirección es obligatorio para llevar a cabo la operación deseada.";
-		public static final String FORMATO_NUMERO_CASA_DIRECCION_NO_VALIDO = "El formato del número de casa no es válido. Asegúrese de que solamente tenga letras y números.";
+		public static final String FORMATO_NUMERO_CASA_DIRECCION_NO_VALIDO = "El formato del número de casa no es válido. Asegúrese de que solamente tenga números.";
 		public static final String LONGITUD_NUMERO_CASA_DIRECCION_NO_VALIDA = "La longitud del número de casa no es válida. Asegúrese que esté entre 1 y 6 caracteres.";
 		public static final String FORMATO_COMPLEMENTO_DIRECCION_NO_VALIDO = "El formato del complemento no es válido. Asegúrese de que solamente tenga letras, números y espacios.";
 		public static final String LONGITUD_COMPLEMENTO_DIRECCION_NO_VALIDA = "La longitud del complemento no es válida. Asegúrese que no supere los 30 caracteres.";
@@ -113,6 +113,37 @@ public class CatalogoMensajes {
 		}
 		
 		public static final String CLIENTE_REGISTRADO_EXITOSAMENTE = "Se ha registrado la información del nuevo cliente de forma exitosa.";
+		
+	}
+	
+	public static class DAOFactory {
+		
+		private DAOFactory() {
+			
+		}
+		
+		public static final String FUENTE_INFORMACION_NO_HABILITADA = "La fuente de información deseada que se solicitó para llevar a cabo la operación no está habilitada. Por favor contacte el administrador de la aplicación";
+		
+	}
+	
+	public static class ClienteFachadaImpl {
+		
+		private ClienteFachadaImpl() {
+			
+		}
+		
+		public static final String PROBLEMA_INESPERADO_REGISTRANDO_CLIENTE = "Se ha presentado un problema inesperado tratando de registrar la información del nuevo cliente. Por favor intente de nuevo y si el problema persiste, contacte al administrador de la aplicación";
+		
+	}
+	
+	public static class ClienteVistaControlador {
+		
+		private ClienteVistaControlador() {
+			
+		}
+		
+		public static final String CLIENTE_REGISTRADO_EXITOSAMENTE = "Se ha registrado la información del nuevo cliente de forma exitosa.";
+		public static final String PROBLEMA_INESPERADO_REGISTRANDO_CLIENTE = "Se ha presentado un problema inesperado tratando de registrar el cliente. Por favor intente de nuevo y si el problema persiste, contacte al administrador de la aplicación";
 		
 	}
 	
@@ -165,6 +196,8 @@ public class CatalogoMensajes {
 		
 		public static final String USUARIO_ERROR_PROBLEMA_CONSULTANDO_TIPO_IDENTIFICACION_POR_ID = "Se ha presentado un problema tratando de consultar la información del tipo de identificación por su identificador. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
 		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CONSULTANDO_TIPO_IDENTIFICACION_POR_ID = "Se ha presentado un problema NO CONTROLADO tratando de consultar la información del tipo de identificación por su identificador. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_CONSULTANDO_TODOS_TIPOS_IDENTIFICACION = "Se ha presentado un problema tratando de consultar la información de todos los tipos de identificación. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CONSULTANDO_TODOS_TIPOS_IDENTIFICACION = "Se ha presentado un problema NO CONTROLADO tratando de consultar la información de todos los tipos de identificación. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
 		
 	}
 	
@@ -176,6 +209,28 @@ public class CatalogoMensajes {
 		
 		public static final String USUARIO_ERROR_PROBLEMA_CONSULTANDO_CIUDAD_POR_ID = "Se ha presentado un problema tratando de consultar la información de la ciudad por su identificador. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
 		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CONSULTANDO_CIUDAD_POR_ID = "Se ha presentado un problema NO CONTROLADO tratando de consultar la información de la ciudad por su identificador. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_CONSULTANDO_TODAS_CIUDADES = "Se ha presentado un problema tratando de consultar la información de todas las ciudades. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CONSULTANDO_TODAS_CIUDADES = "Se ha presentado un problema NO CONTROLADO tratando de consultar la información de todas las ciudades. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
+		
+	}
+	
+	public static class TipoIdentificacionFachadaImpl {
+		
+		private TipoIdentificacionFachadaImpl() {
+			
+		}
+		
+		public static final String PROBLEMA_INESPERADO_CONSULTANDO_TODOS_TIPOS_IDENTIFICACION = "Se ha presentado un problema inesperado tratando de consultar la información de todos los tipos de identificación. Por favor intente de nuevo y si el problema persiste, contacte al administrador de la aplicación";
+		
+	}
+	
+	public static class CiudadFachadaImpl {
+		
+		private CiudadFachadaImpl() {
+			
+		}
+		
+		public static final String PROBLEMA_INESPERADO_CONSULTANDO_TODAS_CIUDADES = "Se ha presentado un problema inesperado tratando de consultar la información de todas las ciudades. Por favor intente de nuevo y si el problema persiste, contacte al administrador de la aplicación";
 		
 	}
 	

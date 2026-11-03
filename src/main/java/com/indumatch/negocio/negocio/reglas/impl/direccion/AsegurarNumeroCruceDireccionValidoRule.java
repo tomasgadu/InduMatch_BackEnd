@@ -36,7 +36,7 @@ public class AsegurarNumeroCruceDireccionValidoRule implements Rule<String> {
 
 	private void validarFormato(String dato) {
 
-		if (!UtilTexto.getUtilTexto().formatoEsValido(dato, UtilTexto.ALFANUMERICO)) {
+		if (!UtilTexto.getUtilTexto().formatoEsValido(dato, UtilTexto.NUMERO_CON_LETRA)) {
 			var mensajeUsuario = CatalogoMensajes.DireccionNegocioImpl.FORMATO_NUMERO_CRUCE_DIRECCION_NO_VALIDO;
 			throw InduMatchNegocioException.crear(mensajeUsuario);
 		}

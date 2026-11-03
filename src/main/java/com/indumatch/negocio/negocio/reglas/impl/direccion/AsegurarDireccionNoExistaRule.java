@@ -29,7 +29,12 @@ public class AsegurarDireccionNoExistaRule implements Rule<Object> {
 
 		var resultados = daoFactory.obtenerDireccionDAO().consultarPorFiltro(entidadFiltro);
 
-		if (!resultados.isEmpty()) {
+		// El complemento es opcional: si viene vacío el filtro no lo tiene en cuenta,
+		// por eso se compara aquí para que la dirección sea exactamente la misma
+		var existeDireccionIgual = resultados.stream()
+				.anyMatch(resultado -> resultado.getComplemento().equals(entidadFiltro.getComplemento()));
+
+		if (existeDireccionIgual) {
 			var mensajeUsuario = CatalogoMensajes.DireccionNegocioImpl.DIRECCION_EXISTE_CON_MISMOS_DATOS;
 			throw InduMatchNegocioException.crear(mensajeUsuario);
 		}

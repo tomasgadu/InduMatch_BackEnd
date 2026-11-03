@@ -116,6 +116,16 @@ public class CatalogoMensajes {
 		
 	}
 	
+	public static class Reglas {
+		
+		private Reglas() {
+			
+		}
+		
+		public static final String DATOS_INSUFICIENTES_PARA_EJECUTAR_REGLA = "No se recibieron todos los datos necesarios para validar la información. Por favor intente de nuevo y si el problema persiste, contacte al administrador de la aplicación";
+		
+	}
+	
 	public static class DAOFactory {
 		
 		private DAOFactory() {

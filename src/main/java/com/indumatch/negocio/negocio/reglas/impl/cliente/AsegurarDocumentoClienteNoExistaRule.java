@@ -24,6 +24,11 @@ public class AsegurarDocumentoClienteNoExistaRule implements Rule<Object> {
 	@Override
 	public void ejecutar(Object... datos) {
 
+		if (datos.length < 3) {
+			var mensajeUsuario = CatalogoMensajes.Reglas.DATOS_INSUFICIENTES_PARA_EJECUTAR_REGLA;
+			throw InduMatchNegocioException.crear(mensajeUsuario);
+		}
+
 		var idTipoIdentificacion = (UUID) datos[0];
 		var numeroDocumento = (String) datos[1];
 		var daoFactory = (DAOFactory) datos[2];

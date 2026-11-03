@@ -24,6 +24,11 @@ public class AsegurarCiudadExistaRule implements Rule<Object> {
 	@Override
 	public void ejecutar(Object... datos) {
 
+		if (datos.length < 2) {
+			var mensajeUsuario = CatalogoMensajes.Reglas.DATOS_INSUFICIENTES_PARA_EJECUTAR_REGLA;
+			throw InduMatchNegocioException.crear(mensajeUsuario);
+		}
+
 		var idCiudad = (UUID) datos[0];
 		var daoFactory = (DAOFactory) datos[1];
 

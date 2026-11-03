@@ -3,7 +3,7 @@ package com.indumatch.transversal.utilitarios;
 public class UtilTexto {
 
 	private static UtilTexto INSTANCIA;
-	public static String VACIO = "";
+	public static final String VACIO = "";
 	public static final String SOLO_LETRAS_ESPACIOS = "^[a-zA-Z ñÑáÁéÉíÍóÓúÚ]*$";
 	public static final String ALFANUMERICO = "^[a-zA-Z0-9]*$";
 	public static final String ALFANUMERICO_ESPACIOS = "^[a-zA-Z0-9 ñÑáÁéÉíÍóÓúÚ]*$";

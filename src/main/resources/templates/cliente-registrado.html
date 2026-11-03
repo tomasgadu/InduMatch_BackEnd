@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>InduMatch · Cliente registrado</title>
+	<link rel="icon" type="image/svg+xml" href="/img/icono.svg">
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+
+	<!-- ===================== ENCABEZADO ===================== -->
+	<header class="encabezado">
+		<div class="container-xl d-flex align-items-center">
+			<img src="/img/logo-indusel.svg" alt="Indusel" class="logo">
+			<div class="marca">
+				<strong>InduMatch</strong>
+				<span>Gestión de pedidos</span>
+			</div>
+			<nav class="menu">
+				<a href="/clientes/registrar" class="activo">Clientes</a>
+			</nav>
+			<div class="usuario ms-auto">
+				<span class="avatar">AD</span>
+				<span>Administrador</span>
+			</div>
+		</div>
+	</header>
+
+	<main class="container-xl py-4">
+
+		<p class="migas">Clientes / Registrar</p>
+		<h1 class="titulo">Registrar cliente</h1>
+
+		<!-- th:text reemplaza el texto de ejemplo por el dato real del modelo -->
+		<div class="tarjeta tarjeta-exito" th:object="${cliente}">
+			<div class="d-flex align-items-center gap-3 mb-3">
+				<span class="icono-exito">&#10003;</span>
+				<div>
+					<h2 class="h5 fw-bold mb-0">Cliente registrado</h2>
+					<p class="subtitulo mb-0" th:text="${mensaje}">Mensaje de éxito</p>
+				</div>
+			</div>
+
+			<div class="resumen row g-3">
+				<div class="col-sm-6">
+					<small>DOCUMENTO</small>
+					<p th:text="|${tipoIdentificacion.nombre} *{numeroDocumento}|">Cédula 1098765432</p>
+				</div>
+				<div class="col-sm-6">
+					<small>TELÉFONO</small>
+					<p th:text="*{telefono}">3125550198</p>
+				</div>
+				<div class="col-12">
+					<small>CORREO</small>
+					<p th:text="*{correo}">maria.lopez@gmail.com</p>
+				</div>
+				<div class="col-12">
+					<small>DIRECCIÓN</small>
+					<p>
+						<span th:text="|*{direccion.viaPrincipal} #*{direccion.numeroCruce} - *{direccion.numeroCasa}|">Carrera 70 #44 - 21</span><span
+							th:if="*{direccion.complemento != ''}" th:text="|, *{direccion.complemento}|">, Apto 302</span><span
+							th:text="|, ${ciudad.nombre}-${ciudad.departamento.nombre}-${ciudad.departamento.pais.nombre}|">, Medellín-Antioquia-Colombia</span>
+					</p>
+				</div>
+			</div>
+
+			<a href="/clientes/registrar" class="btn btn-primary mt-3">Registrar otro cliente</a>
+		</div>
+
+	</main>
+</body>
+</html>

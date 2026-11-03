@@ -1,0 +1,276 @@
+/* =========================================================
+   Estilos propios de InduMatch.
+   Bootstrap pone la base; aquí solo se cambian los colores
+   y algunos detalles para que se parezca al mockup.
+   ========================================================= */
+
+/* Colores de la marca Indusel (tomados del mockup) */
+:root {
+	--azul-indusel: #15166A;
+	--azul-noche: #0F1D2A;
+	--fondo: #F2F4F7;
+	--texto: #0F1D2A;
+	--texto-secundario: #4F5D6B;
+	--borde: #D9DEE5;
+	--error: #B42318;
+	--exito: #067647;
+
+	/* Variables de Bootstrap que se reemplazan */
+	--bs-body-font-family: "Open Sans", "Segoe UI", Arial, sans-serif;
+	--bs-body-bg: var(--fondo);
+	--bs-body-color: var(--texto);
+	--bs-form-invalid-color: var(--error);
+	--bs-form-invalid-border-color: var(--error);
+}
+
+/* Botón principal con el azul de Indusel */
+.btn-primary {
+	--bs-btn-bg: var(--azul-indusel);
+	--bs-btn-border-color: var(--azul-indusel);
+	--bs-btn-hover-bg: #0E0F4F;
+	--bs-btn-hover-border-color: #0E0F4F;
+	--bs-btn-active-bg: #0E0F4F;
+	--bs-btn-disabled-bg: var(--azul-indusel);
+	--bs-btn-disabled-border-color: var(--azul-indusel);
+	font-weight: 600;
+	padding: .6rem 1.4rem;
+}
+
+.btn-outline-secondary {
+	--bs-btn-color: var(--texto);
+	--bs-btn-border-color: var(--borde);
+	--bs-btn-bg: #FFFFFF;
+	--bs-btn-hover-bg: var(--fondo);
+	--bs-btn-hover-color: var(--texto);
+	--bs-btn-hover-border-color: var(--borde);
+	font-weight: 600;
+	padding: .6rem 1.4rem;
+}
+
+/* ---------- Encabezado ---------- */
+.encabezado {
+	background: var(--azul-noche);
+	color: #FFFFFF;
+	height: 64px;
+}
+
+.encabezado .container-xl {
+	height: 100%;
+}
+
+.logo {
+	height: 34px;
+	margin-right: 1rem;
+}
+
+.marca {
+	border-left: 1px solid rgba(255, 255, 255, .25);
+	padding-left: 1rem;
+	line-height: 1.2;
+}
+
+.marca strong {
+	display: block;
+}
+
+.marca span {
+	font-size: .8rem;
+	color: #C5CCD6;
+}
+
+.menu {
+	height: 100%;
+	margin-left: 4rem;
+}
+
+.menu a {
+	display: inline-flex;
+	align-items: center;
+	height: 100%;
+	padding: 0 1rem;
+	color: #FFFFFF;
+	font-weight: 600;
+	font-size: .9rem;
+	text-decoration: none;
+	border-bottom: 3px solid transparent;
+}
+
+.menu a.activo {
+	border-bottom-color: #FFFFFF;
+}
+
+.usuario {
+	display: flex;
+	align-items: center;
+	gap: .6rem;
+	font-size: .9rem;
+}
+
+.avatar {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: var(--azul-indusel);
+	border: 1px solid rgba(255, 255, 255, .4);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: .75rem;
+	font-weight: 700;
+}
+
+/* ---------- Títulos ---------- */
+.migas {
+	font-size: .8rem;
+	color: var(--texto-secundario);
+	margin-bottom: .25rem;
+}
+
+.titulo {
+	font-size: 1.8rem;
+	font-weight: 700;
+	margin-bottom: .25rem;
+}
+
+.subtitulo {
+	color: var(--texto-secundario);
+	font-size: .9rem;
+}
+
+/* ---------- Tarjetas ---------- */
+.tarjeta {
+	background: #FFFFFF;
+	border: 1px solid var(--borde);
+	border-radius: 10px;
+	padding: 1.25rem 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.tarjeta-titulo {
+	font-size: 1rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+}
+
+.form-label {
+	font-size: .85rem;
+	font-weight: 600;
+	margin-bottom: .3rem;
+	white-space: nowrap;
+}
+
+/* Campos en blanco (Bootstrap les pone el color de fondo de la página) */
+.form-control,
+.form-select {
+	background-color: #FFFFFF;
+	border-color: var(--borde);
+}
+
+.opcional {
+	font-weight: 400;
+	font-size: .75rem;
+	color: var(--texto-secundario);
+}
+
+/* ---------- Validaciones del formulario (sin JavaScript) ----------
+   :user-invalid se activa cuando el usuario ya pasó por el campo y su valor
+   no cumple required, pattern o minlength. Entonces se pinta el borde rojo
+   y se muestra el mensaje que está debajo (.invalid-feedback de Bootstrap). */
+.form-control:user-invalid,
+.form-select:user-invalid {
+	border-color: var(--error);
+}
+
+.form-control:user-invalid ~ .invalid-feedback,
+.form-select:user-invalid ~ .invalid-feedback {
+	display: block;
+}
+
+/* ---------- Panel de validaciones ---------- */
+.panel-ayuda {
+	font-size: .8rem;
+	color: var(--texto-secundario);
+}
+
+.reglas {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.reglas li {
+	position: relative;
+	padding-left: 1.75rem;
+	margin-bottom: .8rem;
+	font-size: .85rem;
+}
+
+.reglas li::before {
+	content: "\2713";
+	position: absolute;
+	left: 0;
+	top: .55rem;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: var(--exito);
+	color: #FFFFFF;
+	font-size: .7rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.reglas small {
+	display: block;
+	color: var(--texto-secundario);
+	font-size: .7rem;
+}
+
+/* ---------- Mensajes de error del backend ---------- */
+.alerta-error {
+	background: #FEF3F2;
+	border: 1px solid #FECDCA;
+	border-radius: 8px;
+	color: var(--error);
+	padding: .75rem 1rem;
+	margin-bottom: 1rem;
+	font-size: .9rem;
+}
+
+/* ---------- Confirmación ---------- */
+.tarjeta-exito {
+	max-width: 640px;
+	padding: 1.5rem;
+}
+
+.icono-exito {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: #ECFDF3;
+	color: var(--exito);
+	font-weight: 700;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.resumen {
+	background: var(--fondo);
+	border-radius: 8px;
+	padding: 1rem;
+	margin: 0;
+}
+
+.resumen small {
+	font-size: .7rem;
+	font-weight: 700;
+	letter-spacing: .08em;
+	color: var(--texto-secundario);
+}
+
+.resumen p {
+	margin: .2rem 0 0;
+	font-weight: 600;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- xmlns:th habilita los atributos de Thymeleaf (th:...) -->
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>InduMatch · Registrar cliente</title>
+	<link rel="icon" type="image/svg+xml" href="/img/icono.svg">
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+
+	<!-- ===================== ENCABEZADO ===================== -->
+	<header class="encabezado">
+		<div class="container-xl d-flex align-items-center">
+			<img src="/img/logo-indusel.svg" alt="Indusel" class="logo">
+			<div class="marca">
+				<strong>InduMatch</strong>
+				<span>Gestión de pedidos</span>
+			</div>
+			<nav class="menu">
+				<a href="/clientes/registrar" class="activo">Clientes</a>
+			</nav>
+			<div class="usuario ms-auto">
+				<span class="avatar">AD</span>
+				<span>Administrador</span>
+			</div>
+		</div>
+	</header>
+
+	<main class="container-xl py-4">
+
+		<p class="migas">Clientes / Registrar</p>
+		<h1 class="titulo">Registrar cliente</h1>
+		<p class="subtitulo">Registra los datos de identificación, contacto y dirección de un nuevo cliente.</p>
+
+		<div class="row g-4">
+			<div class="col-lg-8">
+
+				<!--
+					th:object = el ClienteDTO que el controlador puso en el modelo.
+					th:field  = conecta cada campo con un atributo del DTO (nombre y valor).
+					Los atributos required, pattern, minlength y maxlength son las
+					validaciones del front: el navegador no deja enviar si no se cumplen.
+				-->
+				<form th:action="@{/clientes/registrar}" th:object="${cliente}" method="post">
+
+					<div class="tarjeta">
+						<h2 class="tarjeta-titulo">Identificación y contacto</h2>
+						<div class="row g-3">
+							<div class="col-md-6">
+								<label for="tipoIdentificacion" class="form-label">Tipo de identificación</label>
+								<select id="tipoIdentificacion" th:field="*{tipoIdentificacion.id}" class="form-select" required>
+									<option value="">Seleccione...</option>
+									<option th:each="tipo : ${tiposIdentificacion}"
+											th:value="${tipo.id}" th:text="${tipo.nombre}">Cédula</option>
+								</select>
+								<div class="invalid-feedback">Seleccione el tipo de identificación.</div>
+							</div>
+							<div class="col-md-6">
+								<label for="numeroDocumento" class="form-label">Número de documento</label>
+								<input type="text" id="numeroDocumento" th:field="*{numeroDocumento}" class="form-control"
+									   placeholder="Ej: 1098765432" required pattern="[0-9]+" minlength="5" maxlength="15"
+									   title="Solo números, entre 5 y 15 caracteres.">
+								<div class="invalid-feedback">El número de documento es obligatorio y solo puede tener números, entre 5 y 15 caracteres.</div>
+							</div>
+							<div class="col-md-6">
+								<label for="telefono" class="form-label">Teléfono</label>
+								<input type="text" id="telefono" th:field="*{telefono}" class="form-control"
+									   placeholder="Ej: 3125550198" required pattern="[0-9]+" minlength="7" maxlength="15"
+									   title="Solo números, entre 7 y 15 caracteres.">
+								<div class="invalid-feedback">El teléfono es obligatorio y solo puede tener números, entre 7 y 15 caracteres.</div>
+							</div>
+							<div class="col-md-6">
+								<label for="correo" class="form-label">Correo electrónico</label>
+								<input type="text" id="correo" th:field="*{correo}" class="form-control"
+									   placeholder="Ej: maria.lopez@gmail.com" required minlength="6" maxlength="60"
+									   pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}"
+									   title="Debe tener la forma usuario@dominio.com">
+								<div class="invalid-feedback">El correo es obligatorio y debe tener la forma usuario@dominio.com</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tarjeta">
+						<h2 class="tarjeta-titulo">Dirección</h2>
+						<div class="row g-3">
+							<div class="col-12">
+								<label for="ciudad" class="form-label">Ciudad</label>
+								<select id="ciudad" th:field="*{direccion.ciudad.id}" class="form-select" required>
+									<option value="">Seleccione...</option>
+									<option th:each="ciudad : ${ciudades}" th:value="${ciudad.id}"
+											th:text="|${ciudad.nombre} – ${ciudad.departamento.nombre}|">Medellín – Antioquia</option>
+								</select>
+								<div class="invalid-feedback">Seleccione la ciudad.</div>
+							</div>
+							<div class="col-md-3">
+								<label for="viaPrincipal" class="form-label">Vía principal</label>
+								<input type="text" id="viaPrincipal" th:field="*{direccion.viaPrincipal}" class="form-control"
+									   placeholder="Ej: Carrera 70" required pattern="[a-zA-Z0-9 ñÑáÁéÉíÍóÓúÚ]+" minlength="4" maxlength="20"
+									   title="Letras, números y espacios, entre 4 y 20 caracteres.">
+								<div class="invalid-feedback">Obligatoria. Letras, números y espacios, entre 4 y 20 caracteres.</div>
+							</div>
+							<div class="col-md-3">
+								<label for="numeroCruce" class="form-label">Número de cruce</label>
+								<input type="text" id="numeroCruce" th:field="*{direccion.numeroCruce}" class="form-control"
+									   placeholder="Ej: 44A" required pattern="[0-9]+[a-zA-Z]?" maxlength="6"
+									   title="Un número que puede terminar en una letra, por ejemplo 44 o 44A.">
+								<div class="invalid-feedback">Obligatorio. Un número que puede terminar en una letra, ej: 44 o 44A.</div>
+							</div>
+							<div class="col-md-3">
+								<label for="numeroCasa" class="form-label">Número de casa</label>
+								<input type="text" id="numeroCasa" th:field="*{direccion.numeroCasa}" class="form-control"
+									   placeholder="Ej: 21" required pattern="[0-9]+" maxlength="6"
+									   title="Solo números, máximo 6 caracteres.">
+								<div class="invalid-feedback">Obligatorio. Solo números, máximo 6 caracteres.</div>
+							</div>
+							<div class="col-md-3">
+								<label for="complemento" class="form-label">Complemento <span class="opcional">(opcional)</span></label>
+								<input type="text" id="complemento" th:field="*{direccion.complemento}" class="form-control"
+									   placeholder="Ej: Apto 302" pattern="[a-zA-Z0-9 ñÑáÁéÉíÍóÓúÚ]*" maxlength="30"
+									   title="Letras, números y espacios, máximo 30 caracteres.">
+								<div class="invalid-feedback">Solo letras, números y espacios.</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- th:if: este bloque solo aparece si el controlador envió un error -->
+					<div th:if="${error}" class="alerta-error" role="alert">
+						<strong>No se pudo registrar el cliente</strong>
+						<p class="mb-0" th:text="${error}">Mensaje de la regla que no se cumplió</p>
+					</div>
+
+					<div class="d-flex justify-content-end gap-3">
+						<a href="/clientes/registrar" class="btn btn-outline-secondary">Cancelar</a>
+						<button type="submit" class="btn btn-primary">Registrar cliente</button>
+					</div>
+				</form>
+			</div>
+
+			<!-- Panel informativo con las reglas que aplica el backend -->
+			<aside class="col-lg-4">
+				<div class="tarjeta">
+					<h2 class="tarjeta-titulo">Validaciones de la transacción</h2>
+					<p class="panel-ayuda">Reglas que el backend aplica al registrar. Si alguna no se cumple, se muestra su mensaje.</p>
+					<ul class="reglas">
+						<li><small>CLI-P-0001</small>Documento, teléfono y correo con formato válido</li>
+						<li><small>CLI-P-0003</small>El tipo de identificación existe</li>
+						<li><small>CLI-P-0004</small>No hay otro cliente con el mismo tipo y número de documento</li>
+						<li><small>CLI-P-0005</small>No hay otro cliente con el mismo correo</li>
+						<li><small>CLI-P-0006</small>No hay otro cliente con el mismo teléfono</li>
+						<li><small>DIR-P-0001</small>Vía, cruce y número de casa con formato válido</li>
+						<li><small>DIR-P-0004</small>La ciudad indicada existe</li>
+						<li><small>DIR-P-0005</small>No hay otra dirección igual registrada</li>
+					</ul>
+				</div>
+			</aside>
+		</div>
+
+	</main>
+</body>
+</html>

@@ -9,7 +9,7 @@ import com.indumatch.transversal.excepciones.InduMatchNegocioException;
 import com.indumatch.transversal.utilitarios.UtilObjeto;
 import com.indumatch.transversal.utilitarios.UtilUUID;
 
-// CLI-P-0003: Asegurar que el tipo de identificación indicado exista
+// CLI-P-0003
 public class AsegurarTipoIdentificacionExistaRule implements Rule<Object> {
 
 	private static final Rule<Object> instancia = new AsegurarTipoIdentificacionExistaRule();

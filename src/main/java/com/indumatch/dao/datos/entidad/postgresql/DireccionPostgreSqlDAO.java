@@ -73,7 +73,6 @@ public class DireccionPostgreSqlDAO extends SqlDAO implements DireccionDAO {
 		var sentencia = new StringBuilder(SELECT_BASE);
 		var parametros = new ArrayList<Object>();
 
-		// Solo se filtra por los datos que vienen diligenciados
 		if (!UtilUUID.obtenerUUIDDefecto().equals(filtroTmp.getId())) {
 			agregarCondicion(sentencia, parametros, "id_direccion", filtroTmp.getId());
 		}

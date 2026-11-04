@@ -6,7 +6,7 @@ import com.indumatch.negocio.negocio.reglas.Rule;
 import com.indumatch.transversal.catalogo.CatalogoMensajes;
 import com.indumatch.transversal.excepciones.InduMatchNegocioException;
 
-// CLI-P-0006: Asegurar que no exista otro cliente con el mismo número de teléfono
+// CLI-P-0006
 public class AsegurarTelefonoClienteNoExistaRule implements Rule<Object> {
 
 	private static final Rule<Object> instancia = new AsegurarTelefonoClienteNoExistaRule();

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- xmlns:th habilita los atributos de Thymeleaf (th:...) -->
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
@@ -11,7 +10,6 @@
 </head>
 <body>
 
-	<!-- ===================== ENCABEZADO ===================== -->
 	<header class="encabezado">
 		<div class="container-xl d-flex align-items-center">
 			<img src="/img/logo-indusel.svg" alt="Indusel" class="logo">
@@ -38,12 +36,6 @@
 		<div class="row g-4">
 			<div class="col-lg-8">
 
-				<!--
-					th:object = el ClienteDTO que el controlador puso en el modelo.
-					th:field  = conecta cada campo con un atributo del DTO (nombre y valor).
-					Los atributos required, pattern, minlength y maxlength son las
-					validaciones del front: el navegador no deja enviar si no se cumplen.
-				-->
 				<form th:action="@{/clientes/registrar}" th:object="${cliente}" method="post">
 
 					<div class="tarjeta">
@@ -126,7 +118,6 @@
 						</div>
 					</div>
 
-					<!-- th:if: este bloque solo aparece si el controlador envió un error -->
 					<div th:if="${error}" class="alerta-error" role="alert">
 						<strong>No se pudo registrar el cliente</strong>
 						<p class="mb-0" th:text="${error}">Mensaje de la regla que no se cumplió</p>
@@ -139,7 +130,6 @@
 				</form>
 			</div>
 
-			<!-- Panel informativo con las reglas que aplica el backend -->
 			<aside class="col-lg-4">
 				<div class="tarjeta">
 					<h2 class="tarjeta-titulo">Validaciones de la transacción</h2>

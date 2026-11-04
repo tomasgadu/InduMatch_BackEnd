@@ -9,7 +9,7 @@ import com.indumatch.negocio.negocio.reglas.Rule;
 import com.indumatch.transversal.catalogo.CatalogoMensajes;
 import com.indumatch.transversal.excepciones.InduMatchNegocioException;
 
-// CLI-P-0004: Asegurar que no exista otro cliente con el mismo tipo de identificación y número de documento
+// CLI-P-0004
 public class AsegurarDocumentoClienteNoExistaRule implements Rule<Object> {
 
 	private static final Rule<Object> instancia = new AsegurarDocumentoClienteNoExistaRule();

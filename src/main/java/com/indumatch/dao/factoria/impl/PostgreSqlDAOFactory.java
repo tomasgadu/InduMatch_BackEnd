@@ -56,8 +56,6 @@ public class PostgreSqlDAOFactory extends DAOFactory{
 
 	@Override
 	protected void abrirConexion() {
-		// Los datos de conexión se leen de variables de entorno para que la contraseña
-		// no quede escrita en el código ni en el repositorio
 		var url = obtenerValorVariableEntorno("INDUMATCH_BD_URL", URL_POR_DEFECTO);
 		var usuario = obtenerValorVariableEntorno("INDUMATCH_BD_USUARIO", USUARIO_POR_DEFECTO);
 		var clave = obtenerValorVariableEntorno("INDUMATCH_BD_CLAVE", UtilTexto.VACIO);

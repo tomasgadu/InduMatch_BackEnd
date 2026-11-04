@@ -74,7 +74,6 @@ public class ClientePostgreSqlDAO extends SqlDAO implements ClienteDAO {
 		var sentencia = new StringBuilder(SELECT_BASE);
 		var parametros = new ArrayList<Object>();
 
-		// Solo se filtra por los datos que vienen diligenciados
 		if (!UtilUUID.obtenerUUIDDefecto().equals(filtroTmp.getId())) {
 			agregarCondicion(sentencia, parametros, "id_cliente", filtroTmp.getId());
 		}

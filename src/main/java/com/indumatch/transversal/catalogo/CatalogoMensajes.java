@@ -19,14 +19,12 @@ public class CatalogoMensajes {
 		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_VALIDANDO_SI_TRANSACCION_SQL_ESTA_INICIADA = "Se ha presentado un problema NO CONTROLADO tratando de validar si la conexión contra la fuente de información estaba en un estado consistente al tratar de llevar a cabo la operacion deseada. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
 		public static final String USUARIO_ERROR_NO_ES_POSIBLE_INICIAR_TRANSACCION_SQL = "No es posible continuar con la operación deseada, debido a que la conexión contra la fuente de información se encuentra en un estado inconsistente porque está cerrada, está vacía o porque la transacción ya fue iniciada. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
 		
-		// Mensajes que faltaban:
 		
 		public static final String USUARIO_ERROR_CONEXION_SQL_NO_ESTA_ABIERTA = "No es posible continuar con la operación deseada, debido a que la conexión contra la fuente de información no se encuentra abierta, ya sea porque está cerrada o porque está vacía. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
 		public static final String USUARIO_ERROR_NO_ES_POSIBLE_CONFIRMAR_TRANSACCION_SQL = "No es posible confirmar los cambios de la operación deseada, debido a que la conexión contra la fuente de información se encuentra en un estado inconsistente porque está cerrada, está vacía o porque la transacción no fue iniciada previamente. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
 		public static final String USUARIO_ERROR_NO_ES_POSIBLE_CANCELAR_TRANSACCION_SQL = "No es posible deshacer los cambios de la operación deseada, debido a que la conexión contra la fuente de información se encuentra en un estado inconsistente porque está cerrada, está vacía o porque la transacción no fue iniciada previamente. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
 		public static final String USUARIO_ERROR_NO_ES_POSIBLE_CERRAR_CONEXION_SQL = "No es posible finalizar de manera adecuada la operación deseada, debido a que la conexión contra la fuente de información que se intentó cerrar ya se encuentra cerrada o está vacía. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
 		
-		// Mensajes de la conexión:
 		
 		public static final String USUARIO_ERROR_PROBLEMA_INICIANDO_TRANSACCION_SQL = "Se ha presentado un problema tratando de iniciar la transacción contra la fuente de información en la cual se iba a llevar a cabo la operación deseada. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
 		public static final String USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_INICIANDO_TRANSACCION_SQL = "Se ha presentado un problema NO CONTROLADO tratando de iniciar la transacción contra la fuente de información en la cual se iba a llevar a cabo la operación deseada. Por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación y reporte la novedad...";
@@ -45,7 +43,7 @@ public class CatalogoMensajes {
 			
 		}
 		
-		// CLI-P-0001: datos válidos
+		// CLI-P-0001
 		public static final String TIPO_IDENTIFICACION_CLIENTE_OBLIGATORIO = "El tipo de identificación del cliente es obligatorio para llevar a cabo la operación deseada.";
 		public static final String NUMERO_DOCUMENTO_CLIENTE_OBLIGATORIO = "El número de documento del cliente es obligatorio para llevar a cabo la operación deseada.";
 		public static final String FORMATO_NUMERO_DOCUMENTO_CLIENTE_NO_VALIDO = "El formato del número de documento no es válido. Asegúrese de que solamente tenga números, sin espacios ni caracteres especiales.";
@@ -57,10 +55,10 @@ public class CatalogoMensajes {
 		public static final String FORMATO_CORREO_CLIENTE_NO_VALIDO = "El correo electrónico no tiene un formato válido. Asegúrese de que tenga la forma usuario@dominio.com";
 		public static final String LONGITUD_CORREO_CLIENTE_NO_VALIDA = "La longitud del correo electrónico no es válida. Asegúrese que esté entre 6 y 60 caracteres.";
 		
-		// CLI-P-0003: tipo de identificación exista
+		// CLI-P-0003
 		public static final String TIPO_IDENTIFICACION_CLIENTE_NO_EXISTE = "El tipo de identificación indicado para el cliente no existe.";
 		
-		// CLI-P-0004, CLI-P-0005, CLI-P-0006: datos únicos
+		// CLI-P-0004, CLI-P-0005, CLI-P-0006
 		public static final String CLIENTE_EXISTE_CON_MISMO_TIPO_Y_NUMERO_DOCUMENTO = "Ya existe otro cliente registrado con el mismo tipo de identificación y número de documento.";
 		public static final String CLIENTE_EXISTE_CON_MISMO_CORREO = "Ya existe otro cliente registrado con el mismo correo electrónico.";
 		public static final String CLIENTE_EXISTE_CON_MISMO_TELEFONO = "Ya existe otro cliente registrado con el mismo número de teléfono.";
@@ -73,7 +71,7 @@ public class CatalogoMensajes {
 			
 		}
 		
-		// DIR-P-0001 / DIR-P-0002: datos válidos y sanitizados
+		// DIR-P-0001, DIR-P-0002
 		public static final String CIUDAD_DIRECCION_OBLIGATORIA = "La ciudad de la dirección es obligatoria para llevar a cabo la operación deseada.";
 		public static final String VIA_PRINCIPAL_DIRECCION_OBLIGATORIA = "La vía principal de la dirección es obligatoria para llevar a cabo la operación deseada.";
 		public static final String FORMATO_VIA_PRINCIPAL_DIRECCION_NO_VALIDO = "El formato de la vía principal no es válido. Asegúrese de que solamente tenga letras, números y espacios.";
@@ -87,10 +85,10 @@ public class CatalogoMensajes {
 		public static final String FORMATO_COMPLEMENTO_DIRECCION_NO_VALIDO = "El formato del complemento no es válido. Asegúrese de que solamente tenga letras, números y espacios.";
 		public static final String LONGITUD_COMPLEMENTO_DIRECCION_NO_VALIDA = "La longitud del complemento no es válida. Asegúrese que no supere los 30 caracteres.";
 		
-		// DIR-P-0004: ciudad exista
+		// DIR-P-0004
 		public static final String CIUDAD_DIRECCION_NO_EXISTE = "La ciudad indicada para la dirección no existe.";
 		
-		// DIR-P-0005: dirección única
+		// DIR-P-0005
 		public static final String DIRECCION_EXISTE_CON_MISMOS_DATOS = "Ya existe otra dirección registrada con la misma vía principal, número de cruce, número de casa, complemento y ciudad.";
 		
 	}

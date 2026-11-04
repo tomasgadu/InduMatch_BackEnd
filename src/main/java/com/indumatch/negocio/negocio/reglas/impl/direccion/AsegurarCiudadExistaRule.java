@@ -9,7 +9,7 @@ import com.indumatch.transversal.excepciones.InduMatchNegocioException;
 import com.indumatch.transversal.utilitarios.UtilObjeto;
 import com.indumatch.transversal.utilitarios.UtilUUID;
 
-// DIR-P-0004: Asegurar que la ciudad indicada exista
+// DIR-P-0004
 public class AsegurarCiudadExistaRule implements Rule<Object> {
 
 	private static final Rule<Object> instancia = new AsegurarCiudadExistaRule();

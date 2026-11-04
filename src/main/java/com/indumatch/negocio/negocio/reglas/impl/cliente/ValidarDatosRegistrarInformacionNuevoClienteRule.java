@@ -6,7 +6,7 @@ import com.indumatch.transversal.catalogo.CatalogoMensajes;
 import com.indumatch.transversal.excepciones.InduMatchNegocioException;
 import com.indumatch.transversal.utilitarios.UtilUUID;
 
-// CLI-P-0001: Asegurar que los datos requeridos sean válidos y que no contengan contenido malicioso
+// CLI-P-0001
 public class ValidarDatosRegistrarInformacionNuevoClienteRule implements Rule<ClienteDominio> {
 
 	private static final Rule<ClienteDominio> instancia = new ValidarDatosRegistrarInformacionNuevoClienteRule();

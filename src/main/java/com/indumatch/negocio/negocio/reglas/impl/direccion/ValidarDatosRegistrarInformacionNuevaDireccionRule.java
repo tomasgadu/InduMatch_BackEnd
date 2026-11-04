@@ -6,7 +6,7 @@ import com.indumatch.transversal.catalogo.CatalogoMensajes;
 import com.indumatch.transversal.excepciones.InduMatchNegocioException;
 import com.indumatch.transversal.utilitarios.UtilUUID;
 
-// DIR-P-0001 y DIR-P-0002: Asegurar que los datos requeridos sean válidos y que se sanitice el contenido
+// DIR-P-0001, DIR-P-0002
 public class ValidarDatosRegistrarInformacionNuevaDireccionRule implements Rule<DireccionDominio> {
 
 	private static final Rule<DireccionDominio> instancia = new ValidarDatosRegistrarInformacionNuevaDireccionRule();

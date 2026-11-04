@@ -6,7 +6,7 @@ import com.indumatch.negocio.negocio.reglas.Rule;
 import com.indumatch.transversal.catalogo.CatalogoMensajes;
 import com.indumatch.transversal.excepciones.InduMatchNegocioException;
 
-// CLI-P-0005: Asegurar que no exista otro cliente con el mismo correo electrónico
+// CLI-P-0005
 public class AsegurarCorreoClienteNoExistaRule implements Rule<Object> {
 
 	private static final Rule<Object> instancia = new AsegurarCorreoClienteNoExistaRule();
